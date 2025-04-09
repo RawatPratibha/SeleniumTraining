@@ -24,8 +24,6 @@ Window Handling and iFrameConcepts
 Session-3
 Robot Class
 Dropdown Handling
-
-
 Exercise-
 Visit the Browserstack home page- 
 https://www.browserstack.com/   and click and hold on the get started free button. Apply robot class for the operations.
