@@ -1,7 +1,7 @@
 # SeleniumTraining
 
 
-Selenium Session-1
+Session-1
 
 Topics-
 Introduction to selenium
@@ -11,7 +11,7 @@ Wait Commands
 
 
 
-Selenium Session-2
+Session-2
 
 Topics
 Xpath Concepts
@@ -22,6 +22,7 @@ Dropdown Handling
 
 
 Session-3
+
 Robot Class
 Exercise-
 Visit the Browserstack home page- 
