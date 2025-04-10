@@ -1,0 +1,204 @@
+
+
+Selenium Session-1
+
+Topics-
+Introduction to selenium
+WebDriver Elements and Locators
+WebDriver Commands
+Wait Commands
+
+
+Introduction to selenium
+•	It’s a free and open source automation tool which is used to automation any web based applications
+•	It supports for 14 programming languages which includes – Python , Java , C# etc.
+•	It supports for multiple platforms such as Windows, Mac, Linux.
+•	It supports all most all the browsers such as chrome, firefox, ie, safari, opera.
+•	Current selenium Version is 4.11
+
+
+Selenium Feature-
+-	Web Based Automation Testing
+-	Open Source
+-	Supports multiple framework
+-	Support multiple OS
+-	Supports multiple browsers
+-	Supports multiple programming language
+-	Cross-browser and cross-platform support.
+
+
+
+Selenium Disadvantages
+-	Cannot automate desktop application.
+-	Cannot automate mobile application.
+-	Cannot handle window-based pop-ups which appear while working with the web application.
+-	Cannot automate captcha
+-	Cannot automate barcode or QR codes
+-	Cannot automate OTP
+-	Cannot automate Video streaming or audio streaming
+
+
+Selenium Components
+•	  - Selenium IDE
+•	  - Selenium RC (deprecated)
+•	  - Selenium WebDriver
+•	  - Selenium Grid
+
+Selenium IDE- It is plugin with open-source record and playback test automation for the web. Selenium IDE also helps to simplify the testing process. This helps in quickly share important testing information and results.
+
+Selenium RC- Selenium Remote control was one of the earliest tools, preceding webdriver. It allowed testers to write automated web application tests in various programming language like java , c# etc.
+The key feature of Selenium RC was its ability to interact with web browsers using a server. Which acted as an intermediary between the testing codes and the browser.
+
+Selenium Web Driver- It is Robust open source framework for automating web browsers. As as important part of selenium suite, webdriver offers a programming interface to interact with web browsers, allowing developers and testers to automate browser action seamlessly.
+
+Selenium GRID- It is server that allows tests to  use web browser instances running on remote machines. With selenium grid one server acts as the hub. Tests contact the hub to obtain access to browser instances.
+
+
+WebDriver Elements and Locators-
+•	Web Elements- Web Elements are HTML elements on a webpage.
+
+To launch a Browser-
+WebDriver driver = new ChromeDriver();
+WebDriver driver = new FirefoxDriver();
+WebDriver driver = new EdgeDriver();
+
+Find Elements and Find Elements-
+findElement()- Many locators will match multiple elements on the page. The singular find Element method will return a reference to the first element found within a given context.
+
+findElements() – It is used to find the list of matching child WebElements within the context of parent element. To achieve this, the parent WebElement is chained with findelemnts to access child element.
+
+WebDriver Elements and Locators
+•	  - ID
+The ID attribute for an element can be used for its identification. The method findElement(By.id<”value of id attribute”>) is used to locate an element with the value of the ID attribute.
+WebDriver driver= new FirefoxDriver();
+Driver. findElement(By.id(<”value of id attribute”>));
+•	  - Name
+The method findElement(By.name<”value of name attribute”>) is used to locate an element with the value of the name attribute.
+Driver. findElement(By.name(<”value of name attribute”>));
+
+
+•	  - ClassName
+The method findElement(By.className<”value of className attribute”>) is used to locate an element with the value of the class name attribute.
+
+•	Driver. findElement(By.className(<”value of class name attribute”>));
+
+•	  - TagName
+The method findElement(By.tagName<”value of tagName attribute”>) is used to locate an element with the value of the tag name attribute.
+
+•	Driver. findElement(By.tagName(<”value of tag name attribute”>));
+
+•	  - LinkText / PartialLinkText
+
+The method findElement(By.linkText<”value of linkText attribute”>) is used to locate an element with the value of the linkText attribute.
+
+•	Driver. findElement(By. linkText (<”value of  linkText attribute”>));
+
+•	  - CSS Selector
+
+The method findElement(By.cssSelector<”value of cssSelector attribute”>) is used to locate an element with the value of the cssSelector attribute.
+
+•	Driver. findElement(By. cssSelector (<”value of  cssSelector attribute”>));
+
+  - XPath
+
+The method findElement(By.xpath<”value of xpath attribute”>) is used to locate an element with the value of the xpath attribute.
+
+•	Driver. findElement(By. xpath (<”value of  xpath attribute”>));
+
+Xpath –
+Xpath are of 3 types
+1.	Absolute xpath
+2.	Relative xpath
+3.	Customize xpath
+
+
+
+1.Absolute xpath-
+Boolean imgFile= driver.findElement(By.xpath(“/html/body/div/header/a/img”)).isDisplayed();
+
+
+2.Relative xpath-
+Boolean positionCol=driver.findElement(By.xpath(“//div[@class=’rt-tr -odd’]/div[position()=’2’]”)). isDisplayed();
+
+3	Customize xpath
+
+Xpath contains()
+Xpath Starts-with()
+Xpath Text()
+And & OR
+Ancestor Axis
+Child Axis
+Descedant Axis
+Parent Axis
+Following Axis
+Following sibiling Axis
+Preceding Axis
+
+For example-
+//input[contains(@placeholder,”example”)]
+
+
+WebDriver Commands
+
+Methods of WebDriver Interface: 
+1 get() To enter the url 
+2 getTitle() To get the title of current web page
+3	getCurrentUrl() To get the url of current web page 
+4 getPageSource() To get the page source of current web page 
+5 findElement() To get single webElements 
+6 findElements() To get multiple webElements 
+7 getWindowHandle() To get the id of parent window 
+8 getWindowHandles() To get the id of All windows
+ 9 switchTo() Used to switch one window to other window 
+10 manage() 1. Window 2. Cookies 
+11 navigate() 1. Enter the URL 2. Navigate to previous page 3. Navigate to next page 4. Refresh current web page 
+12 close() To close the current/parent browser 
+13 quit() To close all the browsers opened by selenium
+
+
+
+
+Wait commands
+1.	Implicit wait
+2.	Explicit wait
+3.	Fluent wait
+
+
+1.Implicit wait-This tells WebDriver to wait for a certain amount of time when trying to find an element. It is applied globally for the lifetime of the WebDriver instance.
+
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+This means: "Wait up to 10 seconds for any element to appear before throwing an error."
+
+2. Explicit wait- It is a type of wait in Selenium that allows the WebDriver to wait for a specific condition to occur before proceeding with the next action. Unlike Implicit Wait, it is applied only for specific elements or conditions and can be customized to wait for dynamic elements.
+
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("elementId")));
+This means: "Wait for a maximum of 10 seconds for the element with ID 'elementId' to be visible before continuing."
+
+There are some common conditions that are frequently of use when automating web browsers. For example- 
+Presence_of_element_located
+Visibility_of_element_located
+Visibility_of
+Title_contains
+Presence_of_all_elements_located
+Element_located_to_be_selected
+Alert_is_present
+
+
+Fluent wait- It is a more advanced type of wait in Selenium that allows you to define:
+•	Maximum time to wait for a condition,
+•	Polling frequency (how often to check the condition),
+•	Exceptions to ignore while waiting.
+It gives fine-grained control over waiting logic and is useful when dealing with dynamic or unpredictable elements.
+
+
+Wait<WebDriver> wait = new FluentWait(driver)
+    .withTimeout(Duration.ofSeconds(30))
+    .pollingEvery(Duration.ofSeconds(5))
+    .ignoring(NoSuchElementException.class);
+
+WebElement element = wait.until(driver -> driver.findElement(By.id("elementId")));
+
+
+
+Thank You

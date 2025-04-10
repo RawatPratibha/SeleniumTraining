@@ -1,0 +1,129 @@
+
+
+Selenium Session-2
+
+Topics
+Xpath Concepts
+Alert Handling and Action Class
+JavaScript Executor
+Window Handling and iFrameConcepts
+
+
+Xpath Concepts-
+1.	Absolute Xpath
+2.	Relative Xpath
+3.	Custom Xpath
+
+
+Alert Handling and Action Class
+ Alerts are pop-ups displayed for user interaction.
+Types: 
+Simple Alert, 
+Confirmation Alert, 
+Prompt Alert
+
+Simple Alert- The simple alert in selenium shows some information or warning on the window.
+ 
+
+
+Confirmation alert- The Confirmation alert asks for the permission to do some type of operations.
+ 
+
+
+Prompt Alert- Prompt alert which asks for some input from the user.
+
+ 
+
+
+
+Alert Method-
+Alert Type	Method	Definition
+Simple Alert	alert.accept()	Clicks the OK button on a simple alert. Used to acknowledge information.
+Confirmation Alert	alert.accept() / alert.dismiss()	Accepts or cancels the alert based on your choice. Used to confirm/cancel.
+Prompt Alert	alert.sendKeys(String)
+alert.accept() / alert.dismiss()	Enters text into the alert input box and accepts/dismisses.
+Common for All	driver.switchTo().alert()	Switches the Selenium focus to the active alert on the page.
+	alert.getText()	Gets the message displayed in the alert box.
+
+
+
+Action Class- 
+The Action class handles advanced user interactions in selenium, like Mouse movements , keyboard inputs and context -click (right click) actions.
+Methods of Action class-
+The Action class has many methods for different class
+Method	Description
+click()	Performs a single mouse click at the current mouse location.
+doubleClick()	Performs a double-click at the current mouse location.
+contextClick()	Performs a right-click at the current mouse location.
+click(WebElement)	Clicks directly on a specific web element.
+moveToElement(WebElement)	Moves the mouse to the center of the specified element.
+moveToElement(WebElement, xOffset, yOffset)	Moves mouse to an offset from the top-left corner of the element.
+dragAndDrop(WebElement source, WebElement target)	Drags the source element and drops it on the target element.
+dragAndDropBy(WebElement source, int x, int y)	Drags the source element by x and y offset.
+clickAndHold()	Clicks (without releasing) the primary mouse button.
+clickAndHold(WebElement)	Clicks and holds on a specific element.
+release()	Releases the pressed mouse button at the current location.
+release(WebElement)	Releases the mouse over a specific element.
+sendKeys(CharSequence keys)	Sends a sequence of keys to the active element.
+build()	Builds the sequence of actions (used before perform()).
+perform()	Executes the compiled sequence of actions.
+
+
+JavaScript Executor-
+Very useful when normal Selenium commands don’t work.
+JavaScript Executor is an interface in Selenium WebDriver that allows you to execute JavaScript code directly within the browser.
+It helps you interact with the DOM or perform actions that are difficult using standard WebDriver methods.
+
+When to Use JavaScriptExecutor
+•	Clicking on elements not interactable via click()
+•	Scrolling the web page
+•	Fetching values from hidden elements
+•	Setting values in disabled fields
+•	Handling shadow DOM elements
+
+Demo-
+Interface Declaration- Since JavascriptExecutor is not a class but an interface, it must be cast from WebDriver
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("JavaScript code here");
+
+
+Windows Handling-
+In Selenium, window handling means switching between different browser windows or tabs opened by the WebDriver during a test.
+Each window or tab has a unique Window Handle (ID) that Selenium uses to switch focus.
+driver.getWindowHandle()- To get the ID of the parent window or main window.
+String parent ID=driver. getWindowHandle()
+
+driver.getWindowHandles()- To get the ID of the child window or new  window.
+
+Set <String> child ID= driver.getWindowHandles();
+
+iFrame-
+It is an HTML document embedded inside another HTML document on a webpage.
+Elements inside an <iframe> are isolated from the main page — Selenium can't interact with them unless you switch the driver's focus to the frame.
+Method	Usage Example
+driver.switchTo().frame(int index)	By index (e.g. frame(0))
+driver.switchTo().frame(String nameOrId)	By name or ID of the iframe
+driver.switchTo().frame(WebElement frame)	Using a WebElement
+driver.switchTo().defaultContent()	Switch back to main page
+driver.switchTo().parentFrame()	Switch to parent frame (if nested)
+
+Dropdown Handling
+The Select class in Selenium is used to handle dropdowns created using the <select> tag.
+It is available in org.openqa.selenium.support.ui.Select
+Method	Description
+selectByVisibleText(String text)	Selects option by its visible text.
+selectByIndex(int index)	Selects option by index (starting from 0).
+selectByValue(String value)	Selects option by the value attribute.
+deselectAll()	Deselects all options (for multi-select dropdowns).
+getOptions()	Returns all options in the dropdown.
+getFirstSelectedOption()	Returns the first selected option.
+
+
+Thank You
+
+
+
+
+
+
+

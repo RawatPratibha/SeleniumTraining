@@ -1,0 +1,44 @@
+
+Session-3
+
+Topics
+Robot Class
+
+Hands On-
+Visit the Browserstack home page- 
+https://www.browserstack.com/   and click and hold on the get started free button. Apply robot class for the operations.
+
+
+ROBOT CLASS
+The Robot class in Selenium is not actually a part of Selenium itself, but it’s a Java AWT class that’s often used alongside Selenium to handle tasks that Selenium alone can’t do — especially things like keyboard/mouse actions outside the browser.
+  It comes from java.awt.Robot package (part of Java's standard library)
+  It can simulate real keyboard and mouse events
+ It's useful for interacting with OS-level dialogs, like file uploads, alerts, etc.
+
+Why ROBOT class with Selenium-
+Selenium can only interact with HTML elements in the browser. But sometimes you need to:
+•	Upload a file using a native file dialog
+•	Simulate keyboard keys like Enter, Tab, Ctrl+C
+•	Move or click the mouse outside the browser
+
+When to use Robot vs Actions class?
+Feature	                                             Robot Class	                                                Actions Class
+Works outside browser?	            Yes	                                                    No
+Works inside browser?                  	               Yes (limited)	                                     Yes
+Simulates real OS-level events?	  Yes	                                                   No
+Best for                                                  File uploads, OS popups                       Drag & drop, hover, 
+double-click
+
+
+Robot class Methods in Selenium and its usage
+Method	Description
+keyPress(int keycode)	Simulates pressing a key
+keyRelease(int keycode)	Simulates releasing a key
+mouseMove(int x, int y)	Moves the mouse pointer to screen coordinates (x, y)
+mousePress(int buttons)	Simulates mouse button press
+mouseRelease(int buttons)	Simulates mouse button release
+delay(int ms)	Pauses for a specified number of milliseconds
+createScreenCapture(Rectangle rect)	Takes a screenshot of the screen (can be saved manually)
+
+Thank You
+

@@ -1,0 +1,139 @@
+Session-4
+
+Topics-
+Database testing concepts and Strategies
+SQL queries for retrieval and validation in automation
+Introduction to JDBC drivers and database connections
+Integrating database queries into automated test scripts
+
+Hands On-
+Write SQL queries to set up test data for an automated test
+
+
+
+Database testing concepts and Strategies
+Database Testing involves validating the data stored in the database — ensuring:
+•	Correctness of stored data
+•	Integrity between front-end and back-end
+•	Accuracy after business logic (e.g., after form submission)
+•	Data consistency after updates/deletes
+It can be manual or automated and usually involves SQL queries and tools like JDBC, Hibernate, or tools like DBUnit.
+
+Concept	Description
+Data Validation	             Ensures the front-end form data is stored correctly in DB
+Data Integrity Testing	Ensures relationships (e.g., foreign keys) are correctly maintained
+Stored Procedure Testing	Validate outputs and behavior of stored procedures
+Trigger & Function Testing	Check triggers and user-defined functions for logic and performance
+ACID Properties	           Check atomicity, consistency, isolation, durability of transactions
+	
+CRUD Testing	Verify Create, Read, Update, Delete operations via DB
+
+
+Types of Database Testing
+1.	Structural Testing
+o	Validates database schema, tables, columns, keys, indexes
+o	Tools: DBUnit, schema comparison tools
+2.	Functional Testing
+o	Validates business rules, data flow, UI <-> DB sync
+3.	Non-Functional Testing
+o	Performance, load testing, indexing, deadlock detection
+4.	Black Box Testing
+o	Test without knowing DB structure (e.g., insert form, check result)
+5.	White Box Testing
+o	Directly test queries, joins, procedures, triggers
+
+
+Strategies for DB Testing
+Strategy	                                                                                                    Description
+Use SQL queries to verify results	              Manually or via JDBC
+Automate DB verification with Selenium + JDBC	Validate UI input reflected in DB
+Use data-driven testing	                                         Load test data from DB using TestNG, JUnit
+Mocking database calls for unit testing	    Useful when testing code logic without live DB
+ Rollback transactions	                                     Clean test environment automatically
+Baseline comparisons	                                    Compare before/after snapshots
+
+
+SQL queries for retrieval and validation in automation
+
+Some of SQL Queries
+1.	Create Table
+For example-  the Departments table (with Primary Key)
+CREATE TABLE Departments (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(100) NOT NULL
+);
+
+2.	Insert data in Table-
+For Example- Insert sample data into Departments
+
+INSERT INTO Departments (dept_id, dept_name) VALUES 
+(1, 'Engineering'),
+(2, 'Sales'),
+(3, 'HR');
+
+3.	JOIN
+JOIN two tables-
+SELECT e.emp_id, e.emp_name, e.email, d.dept_name
+FROM Employees e
+JOIN Departments d ON e.dept_id = d.dept_id;
+
+4.	UPDATE
+UPDATE Employees
+SET email = 'alice.new@example.com', dept_id = 2
+WHERE emp_id = 101;
+
+
+5.	DELETE Query-
+DELETE FROM Employees
+WHERE emp_id = 104;
+
+6.	ORDER BY Clause
+SELECT * FROM Employees
+ORDER BY emp_name ASC;
+
+SELECT * FROM Employees
+ORDER BY dept_id DESC;
+
+7.	WHERE Clause
+SELECT * FROM Employees
+WHERE dept_id = 1;
+
+SELECT * FROM Employees
+WHERE emp_name LIKE 'A%';
+
+SELECT * FROM Employees
+WHERE email LIKE '%@example.com';
+
+8.	Combine WHERE + ORDER BY
+SELECT * FROM Employees
+WHERE dept_id = 1
+ORDER BY emp_name;
+
+
+Introduction to JDBC drivers and database connections
+
+JDBC (Java Database Connectivity) is an API provided by Java to connect and interact with relational databases such as MySQL, Oracle, PostgreSQL, SQL Server, etc.
+
+Think of JDBC as a bridge between Java and databases — allowing you to send queries, retrieve data, update records, and more.
+
+Components of JDBC-
+1.	JDBC API – The standard interface for database operations
+2.	Driver Manager – Loads database-specific drivers
+3.	JDBC Driver – Translates Java calls into DB-specific operations
+4.	Connection – Establishes session with the DB
+5.	Statement – Executes SQL queries
+6.	ResultSet – Stores data returned from a query
+
+General steps-
+1. Load JDBC driver
+2. Establish connection to database
+3. Create statement
+4. Execute query (SELECT, INSERT, UPDATE, DELETE)
+5. Process results (ResultSet)
+6. Close connection
+
+
+Integrating database queries into automated test scripts -Java Code
+
+
+Thank You
